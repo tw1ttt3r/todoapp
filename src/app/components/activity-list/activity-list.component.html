@@ -5,4 +5,4 @@
         {{ version }}
     </label>
 </div>
-<app-activity-list-item *ngFor="let activity of activities" [activity]="activity"></app-activity-list-item>
+<app-activity-list-item *ngFor="let activity of activities;" [activity]="activity" (changeStatus)="statusChange($event)"></app-activity-list-item>
