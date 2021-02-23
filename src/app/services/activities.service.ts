@@ -33,7 +33,10 @@ export class ActivitiesService {
   }
 
   updateActivity(id: number, status: number): void {
-    this.activities[id] = { ...this.activities[id], status, lastUpdate: Date.now()}
+    const { index } = this.activities.reduce( (p, a, index) => { 
+      return p = a.id === id ? { ...p, index } : {...p}
+    } , { index: null });
+    this.activities[index] = { ...this.activities[index], status, lastUpdate: Date.now()}
     this.saveDataStorage();
   }
 
