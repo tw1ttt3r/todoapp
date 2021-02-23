@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Activity } from 'src/app/models/activity';
 
 @Component({
   selector: 'app-activity-list',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ActivityListComponent implements OnInit {
 
-  @Input() activities: any[]; 
+  @Input() activities: Activity[]; 
 
   constructor() { }
 

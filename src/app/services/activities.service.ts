@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
+import { Activity } from '../models/activity';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivitiesService {
 
-  activities: any[] = [];
+  activities: Activity[] = [];
 
   constructor() { }
 
-  registerActivity(name: string, description: string) {
+  registerActivity(name: string, description: string): void {
     this.activities = [
       ...this.activities,
       {
         name,
         description,
-        status: 'Pendiente',
+        status: 0,
         register: Date.now(),
-        lastUpdate: null
       }
     ];
   }
 
-  getAllActivities() {
+  getAllActivities(): Activity[] {
     return this.activities;
   }
 }

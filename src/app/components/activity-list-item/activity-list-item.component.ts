@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { StatusActivity } from 'src/app/enums/status-activity.enum';
+import { Activity } from 'src/app/models/activity';
 
 @Component({
   selector: 'app-activity-list-item',
@@ -7,7 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ActivityListItemComponent implements OnInit {
 
-  @Input() activity: any;
+  @Input() activity: Activity;
+  statusActivity = StatusActivity
 
   constructor() { }
 

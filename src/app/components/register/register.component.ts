@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  saveActivity() {
+  saveActivity(): void {
     if (this.activityName.nativeElement.value !== '' && this.activityDescription.nativeElement.value != '') {
       this.activityService.registerActivity(this.activityName.nativeElement.value, this.activityDescription.nativeElement.value);
       this.cleanControls();
@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  cleanControls() {
+  cleanControls(): void {
     this.activityName.nativeElement.value = '';
     this.activityDescription.nativeElement.value = '';
   }

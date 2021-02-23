@@ -1,4 +1,5 @@
 import { AfterContentChecked, Component } from '@angular/core';
+import { Activity } from './models/activity';
 import { ActivitiesService } from './services/activities.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ActivitiesService } from './services/activities.service';
 })
 export class AppComponent implements AfterContentChecked {
 
-  activitiesService: any[];
+  activitiesService: Activity[];
 
   constructor(private activityService: ActivitiesService) {}
 
