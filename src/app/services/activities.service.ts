@@ -29,10 +29,10 @@ export class ActivitiesService {
   }
 
   getAllActivities(): Activity[] {
-    return this.activities;
+    return this.activities.sort((a, b) => b.register - a.register);
   }
 
-  updateActivity(id: number, status: number) {
+  updateActivity(id: number, status: number): void {
     this.activities[id] = { ...this.activities[id], status, lastUpdate: Date.now()}
     this.saveDataStorage();
   }
@@ -46,8 +46,6 @@ export class ActivitiesService {
       const { update, data } = JSON.parse(localStorage.getItem(this.db));
       this.lastUpdate = update;
       this.activities = data;
-      console.log('update', update)
-      console.log('data', data)
     }
   }
 
@@ -70,7 +68,7 @@ export class ActivitiesService {
     return this.timeToString(this.lastUpdate);
   }
 
-  timeToString(time: number) {
+  timeToString(time: number): string {
     const fecha = new Date(time);
     return `${fecha.getDate()}-${this.monthsName[fecha.getMonth()]}-${fecha.getFullYear()} a las ${fecha.getHours() < 12 ? `0${fecha.getHours()}` : fecha.getHours()}:${fecha.getMinutes() < 10 ? `0${fecha.getMinutes()}` : fecha.getMinutes()}:${fecha.getSeconds() < 10 ? `0${fecha.getSeconds()}` : fecha.getSeconds() } ${fecha.getHours() < 12 ? `am` : `pm`}`
   }
