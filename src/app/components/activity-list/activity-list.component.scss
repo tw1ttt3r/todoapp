@@ -1,5 +1,14 @@
 :host {
     width: 100%;
+    div {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        padding-right: 8px;
+        button {
+            margin-left: 12px;
+        }
+    }
 }
 
 ::ng-deep app-activity-list-item {

@@ -1,1 +1,8 @@
+<div>
+    <button (click)="empty()"><i class="fas fa-trash-alt"></i></button>
+    <label>
+        <i class="fas fa-info-circle"></i>
+        {{ version }}
+    </label>
+</div>
 <app-activity-list-item *ngFor="let activity of activities" [activity]="activity"></app-activity-list-item>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Activity } from 'src/app/models/activity';
 
 @Component({
@@ -8,11 +8,17 @@ import { Activity } from 'src/app/models/activity';
 })
 export class ActivityListComponent implements OnInit {
 
-  @Input() activities: Activity[]; 
+  @Input() activities: Activity[];
+  @Input() version: string;
+  @Output() emptyData = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  empty() {
+    this.emptyData.emit();
   }
 
 }
