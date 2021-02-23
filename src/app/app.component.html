@@ -1,2 +1,2 @@
 <app-register></app-register>
-<app-activity-list [activities]="activitiesService"></app-activity-list>
+<app-activity-list [version]="version" [activities]="activitiesService" (emptyData)="deleteData()"></app-activity-list>

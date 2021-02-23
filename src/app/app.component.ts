@@ -10,12 +10,21 @@ import { ActivitiesService } from './services/activities.service';
 export class AppComponent implements AfterContentChecked {
 
   activitiesService: Activity[];
+  version: string;
 
   constructor(private activityService: ActivitiesService) {}
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.activityService.searchDataStorage();
+  }
 
   ngAfterContentChecked() {
     this.activitiesService = this.activityService.getAllActivities();
+    this.version = this.activityService.lastVersion;
   }
+
+  deleteData() {
+    this.activityService.deleteDataStorage();
+  }
+
 }
