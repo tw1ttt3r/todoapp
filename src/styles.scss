@@ -14,3 +14,7 @@ input, button, textarea {
     border: .5px solid black;
     padding: 8px;
 }
+
+button:hover {
+    cursor: pointer;
+}

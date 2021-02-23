@@ -1,12 +1,35 @@
 :host {
-    width: 100%;
+    width: 95%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    border: .5px solid gray;
+    border-radius: 4px;
+    padding: 8px;
+
+    @media (min-width: 150px) and (max-width: 1023px) {
+        flex-direction: column;
+        & > * {
+            margin-top: 4px;
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        flex-direction: row;
+    }
 
     div {
         display: flex;
         flex-direction: column;
+    }
+
+    div.actions {
+        display: flex;
+        flex-direction: row;
+        & > * {
+            margin-right: 4px;
+        }
+
     }
 
     button {

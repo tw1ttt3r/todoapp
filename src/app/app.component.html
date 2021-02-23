@@ -1,2 +1,4 @@
-<app-register #register (activityData)="registerActivity($event)"></app-register>
-<app-activity-list [version]="version" [activities]="activitiesService" (emptyData)="deleteData()" (itemChangeStatus)="updateStatus($event)"></app-activity-list>
+<div>
+    <app-register #register (activityData)="registerActivity($event)"></app-register>
+    <app-activity-list [version]="version" [activities]="activitiesService" (emptyData)="deleteData()" (itemChangeStatus)="updateStatus($event)"></app-activity-list>
+</div>

@@ -1,7 +1,12 @@
 :host {
     width: 100%;
-}
 
-::ng-deep app-activity-list {
-    margin-top: 16px;
+    div {
+        margin-left: 16px;
+        margin-right: 16px;
+
+        app-activity-list {
+            margin-top: 16px;
+        }
+    }
 }
