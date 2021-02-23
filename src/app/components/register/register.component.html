@@ -1,11 +1,11 @@
 <div class="control">
-    <label>Actividad:</label>
-    <input type="text" placeholder="Programar">
+    <label>Actividad *:</label>
+    <input #nameActivity type="text" placeholder="Programar">
 </div>
 <div class="control">
     <label>
-        Descripcion:
+        Descripcion *:
     </label>
-    <textarea cols="30" rows="10" placeholder="Describe el objetivo de la actividad"></textarea>
+    <textarea #descriptionActivity cols="30" rows="10" placeholder="Describe el objetivo de la actividad"></textarea>
 </div>
 <button (click)="saveActivity()">Guardar</button>
