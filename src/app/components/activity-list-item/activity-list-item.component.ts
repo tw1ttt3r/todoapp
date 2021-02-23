@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { StatusActivity } from 'src/app/enums/status-activity.enum';
-import { Activity } from 'src/app/models/activity';
-import { ActivitiesService } from 'src/app/services/activities.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { StatusActivity } from '../../enums/status-activity.enum';
+import { Activity } from '../../models/activity';
 
 @Component({
   selector: 'app-activity-list-item',
@@ -12,18 +11,15 @@ export class ActivityListItemComponent implements OnInit {
 
   @Input() activity: Activity;
   statusActivity = StatusActivity
+  @Output() changeStatus = new EventEmitter<{ id: number, status: number }>();
 
-  constructor(private activityService: ActivitiesService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  changeStatus(id: number, status: number) {
-    this.activityService.updateActivity(id, status);
-  }
-
-  getDateRegistro(time: number) {
-    return this.activityService.timeToString(time);
+  change(id: number, status: number): void {
+    this.changeStatus.emit({ id, status });
   }
 
 }

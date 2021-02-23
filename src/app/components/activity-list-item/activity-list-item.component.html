@@ -1,11 +1,11 @@
-<label><i class="fas fa-clock"></i> {{getDateRegistro(activity.register)}}</label>
+<label><i class="fas fa-clock"></i> {{activity.register}}</label>
 <label>{{activity.name}}</label>
 <label>{{activity.description}}</label>
 <div class="">
     <label class="status{{activity.status}}">{{statusActivity[activity.status]}}</label>
-    <label *ngIf="!!activity.lastUpdate">{{getDateRegistro(activity.lastUpdate)}}</label>
+    <label *ngIf="!!activity.lastUpdate">{{activity.lastUpdate}}</label>
 </div>
-<button [ngClass]="{ 'visible':  activity.status === 1, 'hidden': (activity.status === 0 || activity.status > 1)}" (click)="changeStatus(activity.id, 0)" title="Pendiente"><i class="fas fa-clipboard-list"></i></button>
-<button [ngClass]="{ 'visible': activity.status === 0, 'hidden': activity.status >= 1 }" (click)="changeStatus(activity.id, 1)" title="En Progreso"><i class="fas fa-spinner"></i></button>
-<button [ngClass]="{ 'visible': activity.status  < 2, 'hidden': activity.status > 1 }" (click)="changeStatus(activity.id, 2)" title="Terminar"><i class="fas fa-check-circle"></i></button>
-<button [ngClass]="{ 'hidden': activity.status >= 2, 'visible': activity.status < 2 }" (click)="changeStatus(activity.id, 3)" title="Declinar"><i class="fas fa-times-circle"></i></button>
+<button [ngClass]="{ 'visible':  activity.status === 1, 'hidden': (activity.status === 0 || activity.status > 1)}" (click)="change(activity.id, 0)" title="Pendiente"><i class="fas fa-clipboard-list"></i></button>
+<button [ngClass]="{ 'visible': activity.status === 0, 'hidden': activity.status >= 1 }" (click)="change(activity.id, 1)" title="En Progreso"><i class="fas fa-spinner"></i></button>
+<button [ngClass]="{ 'visible': activity.status  < 2, 'hidden': activity.status > 1 }" (click)="change(activity.id, 2)" title="Terminar"><i class="fas fa-check-circle"></i></button>
+<button [ngClass]="{ 'hidden': activity.status >= 2, 'visible': activity.status < 2 }" (click)="change(activity.id, 3)" title="Declinar"><i class="fas fa-times-circle"></i></button>
