@@ -14,6 +14,7 @@ export class ActivitiesService {
     this.activities = [
       ...this.activities,
       {
+        id: this.activities.length, 
         name,
         description,
         status: 0,
@@ -24,5 +25,9 @@ export class ActivitiesService {
 
   getAllActivities(): Activity[] {
     return this.activities;
+  }
+
+  updateActivity(id: number, status: number) {
+    this.activities[id] = { ...this.activities[id], status, lastUpdate: Date.now()}
   }
 }
