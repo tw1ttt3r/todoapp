@@ -9,3 +9,8 @@
 html, body {
     width: 100vw !important;
 }
+
+input, button, textarea {
+    border: .5px solid black;
+    padding: 8px;
+}
