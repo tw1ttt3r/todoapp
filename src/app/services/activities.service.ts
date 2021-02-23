@@ -30,4 +30,8 @@ export class ActivitiesService {
   updateActivity(id: number, status: number) {
     this.activities[id] = { ...this.activities[id], status, lastUpdate: Date.now()}
   }
+
+  existNameActivity(name: string): boolean {
+    return this.activities.filter( a => a.name === name).length === 0 ? false : true;
+  }
 }
