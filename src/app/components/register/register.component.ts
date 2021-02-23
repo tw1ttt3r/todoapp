@@ -17,6 +17,10 @@ export class RegisterComponent implements OnInit {
 
   saveActivity(): void {
     if (this.activityName.nativeElement.value !== '' && this.activityDescription.nativeElement.value != '') {
+      if (this.activityService.existNameActivity(this.activityName.nativeElement.value)) {
+        alert('Intento de Registro de Actividad Repetido');
+        return;
+      }
       this.activityService.registerActivity(this.activityName.nativeElement.value, this.activityDescription.nativeElement.value);
       this.cleanControls();
     } else {
