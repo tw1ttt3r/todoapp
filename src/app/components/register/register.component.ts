@@ -1,5 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivitiesService } from 'src/app/services/activities.service';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Activity } from '../../models/activity';
 
 @Component({
   selector: 'app-register',
@@ -11,20 +11,17 @@ export class RegisterComponent implements OnInit {
   @ViewChild('nameActivity', { static: true } ) activityName: ElementRef<HTMLInputElement>;
   @ViewChild('descriptionActivity', { static: true } ) activityDescription: ElementRef<HTMLTextAreaElement>;
 
-  constructor(private activityService: ActivitiesService) { }
+  @Output() activityData = new EventEmitter<Activity>();
+
+  constructor() { }
 
   ngOnInit(): void { }
 
   saveActivity(): void {
     if (this.activityName.nativeElement.value !== '' && this.activityDescription.nativeElement.value != '') {
-      if (this.activityService.existNameActivity(this.activityName.nativeElement.value)) {
-        alert('Intento de Registro de Actividad Repetido');
-        return;
-      }
-      this.activityService.registerActivity(this.activityName.nativeElement.value, this.activityDescription.nativeElement.value);
-      this.cleanControls();
+      this.activityData.emit({ name: this.activityName.nativeElement.value, description: this.activityDescription.nativeElement.value });
     } else {
-      alert('Datos Faltantes')
+      alert('Datos Faltantes');
     }
   }
 
