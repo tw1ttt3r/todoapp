@@ -1,0 +1,34 @@
+:host {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input, button, textarea {
+        border: .5px solid black;
+        padding: 8px;
+    }
+
+    textarea {
+        margin-top: 8px;
+    }
+
+    button {
+        margin-top: 4px;
+        padding: 4px;
+        border-radius: 8%;
+        font-size: 1em;
+        background-color:aliceblue;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+}
