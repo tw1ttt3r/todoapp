@@ -1,8 +1,8 @@
 export interface Activity {
-    id: number;
+    id?: number;
     name: string;
     description: string;
-    status: number;
-    register: number;
+    status?: number;
+    register?: number;
     lastUpdate?: number;
 }
