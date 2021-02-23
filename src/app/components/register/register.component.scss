@@ -1,0 +1,23 @@
+:host {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    textarea {
+        margin-top: 8px;
+    }
+
+    button {
+        margin-top: 4px;
+        border-radius: 8%;
+        font-size: 1em;
+        background-color:aliceblue;
+    }
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
