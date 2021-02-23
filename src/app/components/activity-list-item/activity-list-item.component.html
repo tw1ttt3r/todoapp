@@ -1,4 +1,7 @@
 <label>{{activity.name}}</label>
 <label>{{activity.description}}</label>
 <label>{{statusActivity[activity.status]}}</label>
-<button (click)="changeStatus()">change status</button>
+<button [ngClass]="{ 'visible':  activity.status === 1, 'hidden': (activity.status === 0 || activity.status > 1)}" (click)="changeStatus(activity.id, 0)">Pendiente</button>
+<button [ngClass]="{ 'visible': activity.status === 0, 'hidden': activity.status >= 1 }" (click)="changeStatus(activity.id, 1)">En Progreso</button>
+<button [ngClass]="{ 'visible': activity.status  < 2, 'hidden': activity.status > 1 }" (click)="changeStatus(activity.id, 2)">Terminar</button>
+<button [ngClass]="{ 'hidden': activity.status >= 2, 'visible': activity.status < 2 }" (click)="changeStatus(activity.id, 3)">Declinar</button>

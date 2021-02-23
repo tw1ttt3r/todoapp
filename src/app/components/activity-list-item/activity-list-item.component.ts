@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StatusActivity } from 'src/app/enums/status-activity.enum';
 import { Activity } from 'src/app/models/activity';
+import { ActivitiesService } from 'src/app/services/activities.service';
 
 @Component({
   selector: 'app-activity-list-item',
@@ -12,13 +13,13 @@ export class ActivityListItemComponent implements OnInit {
   @Input() activity: Activity;
   statusActivity = StatusActivity
 
-  constructor() { }
+  constructor(private activityService: ActivitiesService) { }
 
   ngOnInit(): void {
   }
 
-  changeStatus() {
-    alert('desde changeStatus');
+  changeStatus(id: number, status: number) {
+    this.activityService.updateActivity(id, status);
   }
 
 }
